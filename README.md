@@ -6,17 +6,15 @@ managers that every game ends up needing anyway.
 
 ## Starting a new game from this
 
-1. Copy the folder, then rename the project:
-   - `default.project.json` → `"name"`
-   - `wally.toml` → `[package] name`
-   - `src/shared/Data/GameConfig.luau` → `PROFILE_STORE`
+1. Copy the folder, then rename the project in `default.project.json`
+   (`"name"`) and `wally.toml` (`[package] name`).
 2. `rokit install` — gets rojo, wally and luau-lsp on PATH.
 3. `wally install` — populates `Packages/`.
 4. `rojo serve` and connect from Studio, or `rojo build -o game.rbxl` for a
    place file to open.
 
-`PROFILE_STORE` is the live DataStore key. Change it before the first launch
-and never after: it *is* the save file.
+Nothing else needs renaming. DataStores are scoped to the universe, so the
+profile store index in `DataManager` is the same string in every game.
 
 ## Layout
 
@@ -106,7 +104,7 @@ fire".
 
 ## Studio and live data are separate
 
-`DataManager.init` picks `PROFILE_STORE_STUDIO` in Studio and `PROFILE_STORE`
+`DataManager.init` picks a `Test` profile store index in Studio and `Game`
 otherwise, and leaderboards write to a `Test` scope in Studio. Live player data
 is unreachable from Studio, and test data is disposable. Requires *Studio
 access to API services* in Game Settings.

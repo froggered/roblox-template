@@ -15,12 +15,22 @@ local ServerScriptService  = game:GetService("ServerScriptService")
 
 local DataService  = require(ReplicatedStorage.Packages.DataService).server
 local Currencies   = require(ReplicatedStorage.Data.Currencies)
-local GameConfig   = require(ReplicatedStorage.Data.GameConfig)
 local ProductUtil  = require(ReplicatedStorage.Modules.ProductUtil)
 local Template     = require(ServerScriptService.ServerData.DataTemplate)
 local LeaderboardManager = require(script.Parent.LeaderboardManager)
 
 local DataManager = {}
+
+-- The ProfileStore index: the DataStore key every profile saves under.
+-- DataStores are scoped to the universe, so this needs no per-game value —
+-- it changes only if you deliberately abandon the old saves (bump it to
+-- "Game2" and every player starts fresh, permanently).
+--
+-- Studio hits a SEPARATE index, so live player data is unreachable from
+-- Studio and test data is disposable. Needs "Studio access to API services"
+-- enabled in Game Settings.
+local PROFILE_STORE        = "Game"
+local PROFILE_STORE_STUDIO = "Test"
 
 local sessionStart: { [Player]: number } = {}
 
@@ -32,12 +42,7 @@ local sessionStart: { [Player]: number } = {}
 function DataManager.init()
 	DataService:init({
 		template = Template,
-		-- Studio hits REAL DataStores on a separate index (needs Studio API
-		-- access enabled). Live player data is unreachable from Studio, and
-		-- test data is just data — wipe the index if it goes bad.
-		profileStoreIndex = if RunService:IsStudio()
-			then GameConfig.PROFILE_STORE_STUDIO
-			else GameConfig.PROFILE_STORE,
+		profileStoreIndex = if RunService:IsStudio() then PROFILE_STORE_STUDIO else PROFILE_STORE,
 	})
 end
 
