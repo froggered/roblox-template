@@ -1,0 +1,10 @@
+{
+  "luau-lsp.sourcemap.rojoProjectFile": "default.project.json",
+  "luau-lsp.sourcemap.autogenerate": true,
+  "luau-lsp.types.roblox": true,
+  "luau-lsp.types.definitionFiles": ["globalTypes.d.luau"],
+  "luau-lsp.ignoreGlobs": ["Packages/**", "**/_Index/**"],
+  "files.associations": {
+    "*.luau": "luau"
+  }
+}

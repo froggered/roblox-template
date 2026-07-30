@@ -1,0 +1,38 @@
+{
+  "name": "template",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Data": {
+        "$path": "src/shared/Data"
+      },
+      "Modules": {
+        "$path": "src/shared/Modules"
+      },
+      "Packages": {
+        "$path": "Packages"
+      }
+    },
+
+    "ServerScriptService": {
+      "ServerModules": {
+        "$path": "src/server/ServerModules"
+      },
+      "ServerData": {
+        "$path": "src/server/ServerData"
+      },
+      "Main": {
+        "$path": "src/server/Main.server.luau"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}

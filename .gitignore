@@ -1,0 +1,13 @@
+# Wally installs these from wally.lock — never edit them by hand
+/Packages
+/ServerPackages
+/DevPackages
+
+# Generated
+sourcemap.json
+
+# Place files (keep the authored .rbxl out of git; sync it with Rojo instead)
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+*.rbxlx.lock

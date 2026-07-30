@@ -1,0 +1,8 @@
+[package]
+name = "gnomecode/template"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+DataService = "leifstout/dataservice@^1.0.0"
