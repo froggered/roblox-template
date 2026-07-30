@@ -1,0 +1,11 @@
+# Normalize line endings so a repo cloned on Windows and one cloned on macOS
+# don't produce whole-file diffs against each other.
+* text=auto eol=lf
+
+# Vendored Roblox API surface for the type checker — regenerated, never
+# hand-edited. Keeps it out of diffs and language stats.
+globalTypes.d.luau linguist-generated=true
+
+# Wally's lockfile is generated but must stay reviewable: a dependency change
+# is a real change.
+wally.lock -diff=false
