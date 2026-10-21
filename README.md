@@ -12,6 +12,8 @@ managers that every game ends up needing anyway.
 3. `wally install` — populates `Packages/`.
 4. `rojo serve` and connect from Studio, or `rojo build -o game.rbxl` for a
    place file to open.
+5. Set the game's **Repository** on the gnomecode.com dashboard to this repo,
+   so its `CHANGELOG.md` feeds the game's update log. See "Releasing" below.
 
 Nothing else needs renaming. DataStores are scoped to the universe, so the
 profile store index in `DataManager` is the same string in every game.
@@ -108,6 +110,21 @@ fire".
 otherwise, and leaderboards write to a `Test` scope in Studio. Live player data
 is unreachable from Studio, and test data is disposable. Requires *Studio
 access to API services* in Game Settings.
+
+## Releasing
+
+Publishing is done by hand in Studio. Afterwards, run
+
+```sh
+python tools/release.py
+```
+
+(or tell the agent you're working with that you've just published). It dates
+the `## Unreleased` section of `CHANGELOG.md`, commits and tags it
+(`release-YYYY-MM-DD`) and pushes. gnomecode.com reads `CHANGELOG.md` from
+GitHub every hour and shows each release in the game's update log, so set the
+game's **Repository** on the dashboard once. To correct a release, edit its
+section and push.
 
 ## Checking your work
 

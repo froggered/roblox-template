@@ -66,3 +66,27 @@ luau-lsp analyze --definitions=globalTypes.d.luau --sourcemap=sourcemap.json \
 
 Must come back clean. `rojo build` succeeding proves nothing — it doesn't parse
 Luau.
+
+## The changelog
+
+`CHANGELOG.md` is this game's update log. gnomecode.com reads it from GitHub
+every hour and shows each dated section on the game's dashboard page, so write
+it for that log, not for git.
+
+- When a change is something a player would notice, or a decision worth
+  remembering later (a price, an odds change, a mode removed and why), add one
+  line under `## Unreleased`. Plain English, what changed rather than how:
+  "Gold packs give Legends at double odds this weekend", not "Bump
+  LegendWeight in PackOdds".
+- Refactors, tooling, tests and fixes to bugs that never shipped get no line.
+  Most commits get none; that is the point of the file.
+- Add to the end of the Unreleased list. If a later change reworks something
+  that is already listed and not yet released, edit that line rather than
+  adding a second one.
+- Only release when Ed says the game has just been published from Studio. Then
+  run `python tools/release.py --type <Content|Bugfix|Config|Misc> --yes`
+  (ask him the type if it isn't obvious), which dates the section, commits,
+  tags and pushes. Never make `release-*` tags or move lines out of Unreleased
+  any other way.
+- Released sections are the published record. Only change one when Ed asks for
+  a correction; the dashboard follows within the hour.

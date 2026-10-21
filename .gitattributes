@@ -9,3 +9,7 @@ globalTypes.d.luau linguist-generated=true
 # Wally's lockfile is generated but must stay reviewable: a dependency change
 # is a real change.
 wally.lock -diff=false
+
+# Parallel sessions each append to CHANGELOG.md's Unreleased list, which as a
+# normal merge conflicts every time two of them add a line. Union keeps both.
+CHANGELOG.md merge=union
