@@ -7,4 +7,4 @@ update log. See CLAUDE.md.
 
 ## Unreleased
 
-<!-- One line per change worth knowing about later: player-facing changes, bug fixes, refactors and other behind-the-scenes work, and decisions worth remembering. -->
+<!-- Internal log: one line per change, player-facing or not (features, fixes, refactors, tooling, decisions). Every publish gets a release, even an empty one. -->

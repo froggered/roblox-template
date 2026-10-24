@@ -79,7 +79,10 @@ def main():
     info = re.sub(r"<!--.*?-->", "", body, flags=re.S)
     info = "\n".join(line.rstrip() for line in info.strip("\n").splitlines()).strip("\n")
     if not info:
-        die("the Unreleased section is empty: nothing to release")
+        # Every publish is released, even one with nothing else logged, so the log always shows
+        # when an update went out.
+        info = "- Published, with no other changes logged."
+        print("Unreleased is empty, so this release records the publish on its own.")
 
     dirty = [l for l in git("status", "--porcelain").splitlines() if not l.endswith("CHANGELOG.md")]
     if dirty:

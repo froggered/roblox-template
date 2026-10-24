@@ -73,15 +73,16 @@ Luau.
 every hour and shows each dated section on the game's dashboard page, so write
 it for that log, not for git.
 
-- Add one line under `## Unreleased` for each change worth knowing about later:
-  anything a player would notice, bug fixes, refactors and other
-  behind-the-scenes work (how the game earns, tracks or reports; how its code is
-  organised), and decisions worth remembering (a price, an odds change, a mode
-  removed and why). Plain English, what changed rather than how: "Gold packs
-  give Legends at double odds this weekend", not "Bump LegendWeight in
-  PackOdds".
-- Skip only what leaves no trace: tests, tooling, typo fixes, and fixes to bugs
-  that never reached players (edit that change's Unreleased line instead).
+- This is an internal changelog: a summary of everything done to the game, not
+  release notes for players. Add one line under `## Unreleased` for every
+  change: anything a player would notice, bug fixes, refactors, tooling,
+  behind-the-scenes work (how the game earns, tracks or reports), and decisions
+  worth remembering (a price, an odds change, a mode removed and why). Plain
+  English, what changed rather than how: "Gold packs give Legends at double odds
+  this weekend", not "Bump LegendWeight in PackOdds". Several small edits to the
+  same thing can share a line.
+- The one exception: a fix to something not yet released gets no line of its
+  own. Edit that change's Unreleased line instead.
 - Add to the end of the Unreleased list. If a later change reworks something
   that is already listed and not yet released, edit that line rather than
   adding a second one.
@@ -90,5 +91,9 @@ it for that log, not for git.
   (ask him the type if it isn't obvious), which dates the section, commits,
   tags and pushes. Never make `release-*` tags or move lines out of Unreleased
   any other way.
+- Every publish gets a release, even one with nothing else in it, so the log
+  shows when each update went out. Before releasing, add anything done since the
+  last release that isn't listed yet. If Unreleased is still empty, release.py
+  records the publish on its own.
 - Released sections are the published record. Only change one when Ed asks for
   a correction; the dashboard follows within the hour.
