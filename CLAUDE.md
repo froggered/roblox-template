@@ -73,7 +73,9 @@ Luau.
 every hour and shows each dated section on the game's dashboard page, so write
 it for that log, not for git.
 
-- When a change is something a player would notice, or a decision worth
+- When a change is something a player would notice, a behind-the-scenes change to how the
+  game earns, tracks or reports (purchase reporting, analytics, ads), or a
+  decision worth
   remembering later (a price, an odds change, a mode removed and why), add one
   line under `## Unreleased`. Plain English, what changed rather than how:
   "Gold packs give Legends at double odds this weekend", not "Bump
