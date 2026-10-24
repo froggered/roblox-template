@@ -73,15 +73,15 @@ Luau.
 every hour and shows each dated section on the game's dashboard page, so write
 it for that log, not for git.
 
-- When a change is something a player would notice, a behind-the-scenes change to how the
-  game earns, tracks or reports (purchase reporting, analytics, ads), or a
-  decision worth
-  remembering later (a price, an odds change, a mode removed and why), add one
-  line under `## Unreleased`. Plain English, what changed rather than how:
-  "Gold packs give Legends at double odds this weekend", not "Bump
-  LegendWeight in PackOdds".
-- Refactors, tooling, tests and fixes to bugs that never shipped get no line.
-  Most commits get none; that is the point of the file.
+- Add one line under `## Unreleased` for each change worth knowing about later:
+  anything a player would notice, bug fixes, refactors and other
+  behind-the-scenes work (how the game earns, tracks or reports; how its code is
+  organised), and decisions worth remembering (a price, an odds change, a mode
+  removed and why). Plain English, what changed rather than how: "Gold packs
+  give Legends at double odds this weekend", not "Bump LegendWeight in
+  PackOdds".
+- Skip only what leaves no trace: tests, tooling, typo fixes, and fixes to bugs
+  that never reached players (edit that change's Unreleased line instead).
 - Add to the end of the Unreleased list. If a later change reworks something
   that is already listed and not yet released, edit that line rather than
   adding a second one.

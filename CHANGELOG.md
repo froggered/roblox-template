@@ -7,4 +7,4 @@ update log. See CLAUDE.md.
 
 ## Unreleased
 
-<!-- One line per change a player would notice, a change to how the game earns, tracks or reports, or a decision worth remembering. -->
+<!-- One line per change worth knowing about later: player-facing changes, bug fixes, refactors and other behind-the-scenes work, and decisions worth remembering. -->
